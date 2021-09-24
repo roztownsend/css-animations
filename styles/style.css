@@ -1,19 +1,26 @@
+
+/* Color palette from:
+colourpod.com/post/661867127728390144/thoroughly-bloviated-submitted-by-seesawsiya
+ */
+
+
+/* Document-wide elements */
+
 body {
     background-color: #53D9B8;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 2.25rem;
+    font-size: 1.75rem;
     text-align: center;
     height: 100vh;
 }
 
 h1, h2 {
     font-family: "Staatliches", "Arial Black", sans-serif;
-    line-height:.85;
 }
 
 h1 {
-    font-size: 6.25rem;
-    padding: 2rem;
+    font-size: 5.75rem;
+    line-height: 0rem;
 }
 
 h2 {
@@ -21,15 +28,17 @@ h2 {
     line-height: normal;
 }
 
-.percent-off {
-    color: #F53A0D;
-}
+/* Body elements */
 
 header {
     background-color: #F6B439;
     margin: auto;
     margin-top: 3%;
     max-width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-around;
 }
 
 main {
@@ -37,6 +46,22 @@ main {
     margin: auto;
 }
 
+/* keyframe animation for percent off */
+
+@keyframes percent-off__pulse {
+    0% {transform: scale(1);}
+    25% {transform: scale(1.1);}
+    50% {transform: scale(1.2);}
+    75% {transform: scale(1.1);}
+}
+
+.percent-off {
+    color: #F53A0D;
+    animation: percent-off__pulse 4s linear infinite;
+    display: inline-block;
+}
+
+/* Transition animation in coupon box */
 
 .coupon-box {
     background-color: #1B635F;
@@ -44,7 +69,14 @@ main {
     padding: 3%;
     margin: auto;
     margin-bottom: 3%;
+    width: 50%;
+    transition: width 2s;
+    transition: color 1s, width 2s;
+}
 
+.coupon-box:hover {
+    width: 70%;
+    color: #F6B439;
 }
 
 .coupon_code {
